@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>1XBET VIP Predictor - موبايل</title>
+    <title>1XBET VIP Predictor</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -31,7 +31,8 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-            background: linear-gradient(180deg, rgba(3, 11, 30, 0.8) 0%, rgba(3, 11, 30, 0.95) 100%), url('i.webp') no-repeat center center fixed !important;
+            /* Принудительная установка фона с градиентным затемнением для читаемости текста */
+            background: linear-gradient(180deg, rgba(3, 11, 30, 0.75) 0%, rgba(3, 11, 30, 0.92) 100%), url('i.webp') no-repeat center center fixed !important;
             background-size: cover !important;
         }
 
@@ -39,7 +40,6 @@
             padding-bottom: env(safe-area-inset-bottom, 20px);
         }
 
-        /* Шапка мобильного приложения */
         header {
             width: 100%;
             background: rgba(3, 11, 30, 0.95);
@@ -93,7 +93,6 @@
             font-size: 0.7rem;
         }
 
-        /* Основной контейнер с жестким ограничением ширины экрана телефона */
         .app-container {
             width: 100%;
             max-width: 420px;
@@ -104,7 +103,6 @@
             flex: 1;
         }
 
-        /* Карточки и блоки */
         .mobile-card {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
@@ -126,7 +124,6 @@
         }
         .promo-box span { color: var(--accent-cyan); font-weight: 800; }
 
-        /* Авторизация */
         .pin-input {
             width: 100%;
             background: rgba(3, 11, 30, 0.9);
@@ -156,7 +153,6 @@
         }
         .main-btn:active { transform: scale(0.98); }
 
-        /* Сетка игр (2 в ряд для телефона) */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -178,7 +174,6 @@
         .game-name { font-weight: 800; font-size: 0.8rem; margin-bottom: 2px; }
         .game-status { font-size: 0.6rem; color: var(--accent-cyan); background: rgba(0, 153, 255, 0.1); padding: 2px 6px; border-radius: 8px; display: inline-block; }
 
-        /* Игровой экран */
         #gameplay, #dashboard { display: none; width: 100%; flex-direction: column; gap: 10px; }
 
         .nav-top {
@@ -231,7 +226,6 @@
         }
         .mine-cell.safe { background: rgba(0, 153, 255, 0.3); border-color: var(--accent-cyan); }
 
-        /* Модальное окно */
         #modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(3, 11, 30, 0.85); backdrop-filter: blur(8px);
@@ -246,7 +240,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background: linear-gradient(180deg, rgba(3, 11, 30, 0.75) 0%, rgba(3, 11, 30, 0.92) 100%), url('i.webp') no-repeat center center fixed !important; background-size: cover !important;">
 
     <header>
         <div class="brand">
