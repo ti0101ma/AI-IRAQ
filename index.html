@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>1XBET VIP Predictor - العراق</title>
+    <title>1XBET VIP Predictor - موبايل</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #030b1e;
-            --bg-card: rgba(8, 20, 48, 0.88);
-            --border-neon: rgba(0, 153, 255, 0.4);
+            --bg-card: rgba(8, 20, 48, 0.9);
+            --border-neon: rgba(0, 153, 255, 0.35);
             --accent-blue: #0099ff;
             --accent-cyan: #00e5ff;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            --danger: #ef4444;
         }
 
         * {
@@ -26,7 +24,6 @@
         }
 
         html, body {
-            background-color: #030b1e !important;
             color: var(--text-main);
             min-height: 100vh;
             width: 100%;
@@ -34,64 +31,51 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-            position: relative;
+            background: linear-gradient(180deg, rgba(3, 11, 30, 0.8) 0%, rgba(3, 11, 30, 0.95) 100%), url('i.webp') no-repeat center center fixed !important;
+            background-size: cover !important;
         }
 
         body {
-            /* Интегрирован ваш фон казино из файла i.webp */
-            background-image: 
-                linear-gradient(180deg, rgba(3, 11, 30, 0.75) 0%, rgba(3, 11, 30, 0.92) 100%),
-                url('i.webp') !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-            background-attachment: fixed !important;
-            padding-bottom: 30px;
+            padding-bottom: env(safe-area-inset-bottom, 20px);
         }
 
+        /* Шапка мобильного приложения */
         header {
             width: 100%;
-            background: rgba(3, 11, 30, 0.92);
+            background: rgba(3, 11, 30, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 10px 14px;
+            padding: 10px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border-neon);
             position: sticky;
             top: 0;
-            z-index: 999;
-            box-shadow: 0 4px 20px rgba(0, 140, 255, 0.25);
+            z-index: 100;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .vip-badge {
             background: linear-gradient(135deg, #0099ff, #0055ff);
             color: #fff;
-            padding: 3px 6px;
+            padding: 2px 5px;
             border-radius: 4px;
             font-weight: 800;
-            font-size: 0.6rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+            font-size: 0.55rem;
         }
 
         .brand-name {
             font-weight: 800;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
             color: var(--text-main);
         }
-        .brand-name span {
-            color: var(--accent-cyan);
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-        }
+        .brand-name span { color: var(--accent-cyan); }
 
         .header-right {
             display: flex;
@@ -99,173 +83,62 @@
             gap: 6px;
         }
 
-        .ai-status-pill {
-            background: rgba(0, 153, 255, 0.1);
-            border: 1px solid rgba(0, 153, 255, 0.3);
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .pulse-dot {
-            width: 5px; height: 5px; background: var(--accent-cyan); border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-cyan);
-            animation: pulseAnim 1.5s infinite;
-        }
-        @keyframes pulseAnim {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--accent-cyan); }
-            100% { transform: scale(0.95); opacity: 0.8; }
-        }
-
         .user-balance {
             background: rgba(0, 153, 255, 0.15);
             border: 1px solid rgba(0, 153, 255, 0.4);
-            padding: 5px 10px;
-            border-radius: 8px;
+            padding: 4px 8px;
+            border-radius: 6px;
             color: var(--accent-cyan);
             font-weight: 800;
-            font-size: 0.75rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
+            font-size: 0.7rem;
         }
 
-        .container {
+        /* Основной контейнер с жестким ограничением ширины экрана телефона */
+        .app-container {
             width: 100%;
-            max-width: 480px;
-            padding: 12px;
-            flex: 1;
+            max-width: 420px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            z-index: 2;
+            gap: 10px;
+            flex: 1;
         }
 
-        .promo-banner {
-            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15), rgba(0, 85, 255, 0.05));
-            border: 1px solid var(--accent-blue);
-            border-radius: 12px;
-            padding: 10px;
-            margin-bottom: 12px;
-            text-align: center;
-            box-shadow: inset 0 0 15px rgba(0,153,255,0.1);
-        }
-        .promo-banner span { color: var(--accent-cyan); font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; }
-
-        .winners-ticker-box {
+        /* Карточки и блоки */
+        .mobile-card {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-neon);
-            border-radius: 12px;
-            padding: 10px;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
         }
 
-        .ticker-header {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid rgba(0, 153, 255, 0.2);
-            padding-bottom: 5px;
-        }
-
-        .ticker-list {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            max-height: 110px;
-            overflow: hidden;
-        }
-
-        .winner-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            padding: 5px 8px;
-            background: rgba(3, 11, 30, 0.75);
-            border-radius: 6px;
-            border: 1px solid rgba(0, 153, 255, 0.1);
-        }
-
-        .winner-item span { color: var(--text-main); font-weight: 600; }
-        .winner-item b { color: var(--accent-cyan); font-weight: 700; }
-
-        #toast-container {
-            position: fixed;
-            bottom: 15px;
-            left: 15px;
-            z-index: 99999;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            pointer-events: none;
-        }
-        .toast-card {
-            background: rgba(8, 20, 48, 0.95);
+        .promo-box {
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.15), rgba(0, 85, 255, 0.05));
             border: 1px solid var(--accent-blue);
             border-radius: 10px;
-            padding: 10px 12px;
-            box-shadow: 0 8px 25px rgba(0,153,255,0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            max-width: 260px;
-            pointer-events: auto;
-        }
-        .toast-icon { font-size: 1.1rem; }
-        .toast-text { font-size: 0.7rem; line-height: 1.2; color: var(--text-muted); }
-        .toast-text b { color: var(--accent-cyan); font-weight: 700; }
-
-        .card {
-            background: var(--bg-card);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-neon);
-            border-radius: 16px;
-            padding: 20px 14px;
+            padding: 8px;
+            font-size: 0.75rem;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 140, 255, 0.15);
-            position: relative;
-            z-index: 5;
         }
+        .promo-box span { color: var(--accent-cyan); font-weight: 800; }
 
-        .card h2 { font-size: 1.2rem; margin-bottom: 6px; font-weight: 800; }
-        .card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 18px; line-height: 1.4; }
-
+        /* Авторизация */
         .pin-input {
             width: 100%;
             background: rgba(3, 11, 30, 0.9);
             border: 2px solid var(--border-neon);
-            border-radius: 12px;
-            padding: 12px;
+            border-radius: 10px;
+            padding: 10px;
             color: #fff;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-align: center;
-            letter-spacing: 10px;
-            margin-bottom: 15px;
+            letter-spacing: 8px;
+            margin: 10px 0;
             outline: none;
-            box-shadow: inset 0 0 10px rgba(0,153,255,0.1);
-        }
-        .pin-input:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 12px rgba(0,229,255,0.3), inset 0 0 10px rgba(0,153,255,0.2);
         }
 
         .main-btn {
@@ -273,129 +146,63 @@
             background: linear-gradient(135deg, var(--accent-blue), #0044cc);
             color: #fff;
             font-weight: 800;
-            padding: 13px;
+            padding: 12px;
             border: none;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 20px rgba(0, 153, 255, 0.4);
-            transition: transform 0.1s ease;
+            box-shadow: 0 4px 15px rgba(0, 153, 255, 0.4);
         }
         .main-btn:active { transform: scale(0.98); }
 
-        #dashboard { display: none; width: 100%; z-index: 5; }
-
-        .section-title {
-            color: var(--accent-cyan);
-            font-size: 0.75rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 800;
-        }
-
+        /* Сетка игр (2 в ряд для телефона) */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
 
         .game-card {
             background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-neon);
-            border-radius: 14px;
-            padding: 16px 10px;
+            border-radius: 12px;
+            padding: 12px 8px;
             text-align: center;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            position: relative;
-            transition: all 0.2s ease;
+            transition: 0.15s;
         }
-        .game-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,153,255,0.3);
-        }
+        .game-card:active { transform: scale(0.96); border-color: var(--accent-cyan); }
 
-        .game-icon { font-size: 2rem; margin-bottom: 6px; }
-        .game-name { font-weight: 800; font-size: 0.9rem; margin-bottom: 4px; color: #fff; }
-        
-        .game-status { 
-            font-size: 0.65rem; 
-            color: var(--accent-cyan); 
-            font-weight: 700; 
-            background: rgba(0, 153, 255, 0.1); 
-            border: 1px solid rgba(0, 153, 255, 0.3);
-            padding: 3px 8px; 
-            border-radius: 12px; 
-            display: inline-block; 
-        }
+        .game-icon { font-size: 1.6rem; margin-bottom: 4px; }
+        .game-name { font-weight: 800; font-size: 0.8rem; margin-bottom: 2px; }
+        .game-status { font-size: 0.6rem; color: var(--accent-cyan); background: rgba(0, 153, 255, 0.1); padding: 2px 6px; border-radius: 8px; display: inline-block; }
 
-        #gameplay { display: none; width: 100%; z-index: 5; }
+        /* Игровой экран */
+        #gameplay, #dashboard { display: none; width: 100%; flex-direction: column; gap: 10px; }
 
-        .navigation-top {
+        .nav-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
         }
-
         .back-btn {
             background: var(--bg-card);
             color: var(--text-main);
             border: 1px solid var(--border-neon);
-            padding: 6px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
             font-weight: 700;
         }
 
-        .bonus-progress-box {
+        .game-screen {
             background: var(--bg-card);
             border: 1px solid var(--border-neon);
-            border-radius: 10px;
-            padding: 8px 12px;
-            margin-bottom: 10px;
-        }
-        .bonus-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.65rem;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-        .progress-track {
-            width: 100%;
-            height: 4px;
-            background: rgba(3, 11, 30, 0.9);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-            transition: width 0.3s ease;
-        }
-
-        .game-screen-box {
-            background: var(--bg-card);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-neon);
-            border-radius: 16px;
-            padding: 18px 10px;
+            border-radius: 14px;
+            padding: 15px 10px;
             text-align: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,153,255,0.05);
-            min-height: 160px;
+            min-height: 140px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -403,106 +210,40 @@
             position: relative;
         }
 
-        .aviator-val { 
-            font-size: 2.2rem; 
-            font-weight: 800; 
-            color: var(--accent-cyan); 
-            margin: 4px 0; 
-            text-shadow: 0 0 15px rgba(0,229,255,0.5); 
-            line-height: 1;
-        }
+        .aviator-val { font-size: 2rem; font-weight: 800; color: var(--accent-cyan); margin: 5px 0; text-shadow: 0 0 10px rgba(0,229,255,0.4); }
 
         .mines-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 4px;
-            max-width: 210px;
+            max-width: 190px;
             margin: 0 auto;
         }
         .mine-cell {
             aspect-ratio: 1;
-            background: rgba(3, 11, 30, 0.85);
+            background: rgba(3, 11, 30, 0.9);
             border: 1px solid var(--border-neon);
-            border-radius: 6px;
+            border-radius: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
-            transition: all 0.2s;
+            font-size: 0.75rem;
         }
-        .mine-cell.safe {
-            background: rgba(0, 153, 255, 0.3);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 10px rgba(0,229,255,0.4);
-        }
+        .mine-cell.safe { background: rgba(0, 153, 255, 0.3); border-color: var(--accent-cyan); }
 
-        .apple-rows {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            max-width: 200px;
-            margin: 0 auto;
-        }
-        .apple-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
-        .apple-cell { background: rgba(3, 11, 30, 0.85); border: 1px solid var(--border-neon); border-radius: 5px; padding: 5px 0; text-align: center; opacity: 0.35; font-size: 0.75rem; }
-        .apple-cell.highlight { background: rgba(0, 153, 255, 0.35); border-color: var(--accent-cyan); opacity: 1; box-shadow: 0 0 10px rgba(0,229,255,0.4); }
-
-        .penalty-field {
-            background: linear-gradient(135deg, #030b1e, #0c2045);
-            border: 1px solid var(--border-neon);
-            border-radius: 12px;
-            height: 120px;
-            position: relative;
-            max-width: 230px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 15px rgba(0,153,255,0.15);
-        }
-        .goal-target {
-            width: 32px; height: 32px; border: 2px dashed rgba(0,229,255,0.9); border-radius: 50%;
-            position: absolute; display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
-            background: rgba(0, 153, 255, 0.25);
-            box-shadow: 0 0 10px rgba(0,229,255,0.4);
-        }
-
-        .sync-badge {
-            background: rgba(0, 153, 255, 0.1); color: var(--accent-cyan); border: 1px solid rgba(0, 153, 255, 0.3);
-            padding: 3px 8px; border-radius: 14px; font-size: 0.6rem; font-weight: 800; display: inline-block; margin-top: 8px;
-        }
-
-        .scanning-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 11, 30, 0.92); backdrop-filter: blur(6px);
-            display: none; flex-direction: column; align-items: center; justify-content: center;
-            border-radius: 16px; z-index: 20;
-        }
-        .scanner-ring {
-            width: 32px; height: 32px; border: 3px solid rgba(0,153,255,0.2); border-top-color: var(--accent-cyan);
-            border-radius: 50%; animation: spinRing 0.8s linear infinite; margin-bottom: 6px;
-            box-shadow: 0 0 10px rgba(0,229,255,0.3);
-        }
-        @keyframes spinRing { to { transform: rotate(360deg); } }
-
+        /* Модальное окно */
         #modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 11, 30, 0.88); backdrop-filter: blur(12px);
-            justify-content: center; align-items: center; z-index: 999999; padding: 16px;
+            background: rgba(3, 11, 30, 0.85); backdrop-filter: blur(8px);
+            justify-content: center; align-items: center; z-index: 1000; padding: 15px;
         }
         .modal-content {
-            background: var(--bg-card); border: 1px solid var(--border-neon); border-radius: 16px; padding: 22px 16px; max-width: 320px; width: 100%; text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 25px rgba(0,153,255,0.3);
+            background: var(--bg-card); border: 1px solid var(--border-neon); border-radius: 14px; padding: 18px 14px; max-width: 300px; width: 100%; text-align: center;
         }
-        .modal-title { color: var(--accent-cyan); font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; text-shadow: 0 0 10px rgba(0,229,255,0.4); }
-        .modal-text { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 16px; }
         .action-link {
             background: linear-gradient(135deg, var(--accent-blue), #0044cc); color: #fff; text-decoration: none; font-weight: 800;
-            padding: 12px; border-radius: 10px; display: block; font-size: 0.85rem; text-transform: uppercase; margin-top: 10px;
-            box-shadow: 0 6px 20px rgba(0,153,255,0.4);
+            padding: 10px; border-radius: 8px; display: block; font-size: 0.75rem; text-transform: uppercase; margin-top: 10px;
         }
-        .close-modal-btn { background: none; border: none; color: var(--text-muted); margin-top: 12px; cursor: pointer; font-size: 0.75rem; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -513,55 +254,44 @@
             <span class="brand-name">VIP <span>PREDICT</span></span>
         </div>
         <div class="header-right">
-            <div class="ai-status-pill">
-                <div class="pulse-dot"></div>
-                <span>AI: <strong id="accuracyRate">98.9</strong>%</span>
-            </div>
-            <div class="user-balance" onclick="playBeep(600, 0.05); openModal();" id="balanceDisplay">المحاولات: 10/10</div>
+            <div class="user-balance" id="balanceDisplay">المحاولات: 10/10</div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="promo-banner">
-            <div>رمز البروموكود: <span id="promoCodeText">IRSO88</span></div>
+    <div class="app-container">
+        <div class="promo-box">
+            رمز البروموكود: <span id="promoCodeText">IRSO88</span>
         </div>
 
-        <div class="winners-ticker-box">
-            <div class="ticker-header">
-                <span>🏆 بث الرابحين المباشر (العراق)</span>
-            </div>
-            <div class="ticker-list" id="tickerList"></div>
-        </div>
-
-        <!-- AUTH STEP -->
-        <div id="auth-screen" class="card">
-            <div style="font-size: 2rem; margin-bottom: 8px;">🇮🇶</div>
-            <h2>التحقق الآمن 1XBET</h2>
-            <p>أدخل رمز PIN المكون من 4 أرقام للوصول إلى خوارزميات التنبؤ المباشرة.</p>
-            <input type="text" id="pin" class="pin-input" placeholder="••••" maxlength="4" autocomplete="off" oninput="playBeep(800, 0.03)">
-            <button class="main-btn" onclick="playBeep(400, 0.08); login();">تسجيل الدخول</button>
+        <!-- AUTH SCREEN -->
+        <div id="auth-screen" class="mobile-card">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🇮🇶</div>
+            <h2 style="font-size: 1rem; margin-bottom: 4px;">التحقق الآمن 1XBET</h2>
+            <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 10px;">أدخل رمز PIN (أدخل: 2282)</p>
+            <input type="text" id="pin" class="pin-input" placeholder="••••" maxlength="4" autocomplete="off">
+            <button class="main-btn" onclick="login()">تسجيل الدخول</button>
         </div>
 
         <!-- DASHBOARD -->
         <div id="dashboard">
-            <div class="section-title">⚡ اختر اللعبة المتاحة للتحليل</div>
+            <div style="font-size: 0.7rem; color: var(--accent-cyan); font-weight: 800; text-transform: uppercase;">اختر اللعبة للتحليل</div>
             <div class="games-grid">
-                <div class="game-card" onclick="playBeep(500, 0.05); openGame('Aviator')">
+                <div class="game-card" onclick="openGame('Aviator')">
                     <div class="game-icon">✈️</div>
                     <div class="game-name">Aviator</div>
                     <div class="game-status">توقع المضاعف</div>
                 </div>
-                <div class="game-card" onclick="playBeep(500, 0.05); openGame('Apple Fortune')">
+                <div class="game-card" onclick="openGame('Apple Fortune')">
                     <div class="game-icon">🍎</div>
                     <div class="game-name">Apple Fortune</div>
                     <div class="game-status">المسار الآمن</div>
                 </div>
-                <div class="game-card" onclick="playBeep(500, 0.05); openGame('Mines')">
+                <div class="game-card" onclick="openGame('Mines')">
                     <div class="game-icon">💣</div>
                     <div class="game-name">Mines 5x5</div>
                     <div class="game-status">خريطة الخلايا</div>
                 </div>
-                <div class="game-card" onclick="playBeep(500, 0.05); openGame('Penalty')">
+                <div class="game-card" onclick="openGame('Penalty')">
                     <div class="game-icon">⚽</div>
                     <div class="game-name">Penalty</div>
                     <div class="game-status">منطقة الهدف</div>
@@ -569,162 +299,46 @@
             </div>
         </div>
 
-        <!-- GAMEPLAY SCREEN -->
+        <!-- GAMEPLAY -->
         <div id="gameplay">
-            <div class="navigation-top">
-                <button class="back-btn" onclick="playBeep(350, 0.05); goHome();">← قائمة الألعاب</button>
-                <span id="currentGameLabel" style="font-weight: 800; color: var(--accent-cyan); font-size: 0.85rem;">Aviator</span>
+            <div class="nav-top">
+                <button class="back-btn" onclick="goHome()">← القائمة</button>
+                <span id="currentGameLabel" style="font-weight: 800; color: var(--accent-cyan); font-size: 0.8rem;">Aviator</span>
+                <span style="font-size: 0.65rem; color: var(--text-muted);" id="progressText">10/10</span>
             </div>
 
-            <div class="bonus-progress-box">
-                <div class="bonus-info">
-                    <span>🔥 الإشارات المجانية المتبقية</span>
-                    <span id="progressText">10 / 10 محاولات</span>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="bonusProgressFill" style="width: 100%;"></div>
-                </div>
-            </div>
-
-            <div class="game-screen-box">
-                <div class="scanning-overlay" id="scanningOverlay">
-                    <div class="scanner-ring"></div>
-                    <div style="font-weight: 800; font-size: 0.7rem; color: var(--accent-cyan); letter-spacing: 0.5px;">جاري حساب الذكاء الاصطناعي...</div>
-                </div>
+            <div class="game-screen">
                 <div id="game-content-area"></div>
-                <div class="sync-badge">⚡ مزامنة خوارزمية 1XBET نشطة</div>
+                <div style="font-size: 0.55rem; color: var(--accent-cyan); margin-top: 6px;">⚡ مزامنة خوارزمية 1XBET نشطة</div>
             </div>
 
-            <button class="main-btn" id="actionBtn" onclick="playBeep(700, 0.05); triggerPrediction();">إنتاج الإشارة الجديدة</button>
+            <button class="main-btn" onclick="triggerPrediction()">إنتاج الإشارة الجديدة</button>
         </div>
     </div>
-
-    <!-- TOASTS -->
-    <div id="toast-container"></div>
 
     <!-- MODAL -->
     <div id="modal-overlay">
         <div class="modal-content">
-            <div class="modal-title" id="modalTitle">⚠️ نفذت محاولاتك المجانية</div>
-            <div class="modal-text" id="modalText">
-                لقد استخدمت محاولات التجربة الـ 10. لمتابعة الحصول على إشارات VIP غير محدودة على 1XBET، يرجى تفعيل حسابك باستخدام بروموكود <b>IRSO88</b> عبر الرابط أدناه:
-            </div>
-            <a href="https://reffpa.com/L?tag=d_5703442m_18217c_&site=5703442&ad=18217&r=registration" target="_blank" class="action-link">الانتقال إلى 1XBET والتفعيل</a>
+            <div style="color: var(--accent-cyan); font-size: 0.95rem; font-weight: 800; margin-bottom: 6px;" id="modalTitle">⚠️ تنبيه</div>
+            <div style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.3; margin-bottom: 12px;" id="modalText">انتهت المحاولات المجانية. تفعيل البروموكود <b>IRSO88</b> عبر الرابط أدناه:</div>
+            <a href="https://reffpa.com/L?tag=d_5703442m_18217c_&site=5703442&ad=18217&r=registration" target="_blank" class="action-link">التسجيل في 1XBET</a>
             <br>
-            <button class="close-modal-btn" onclick="playBeep(300, 0.04); closeModal();">إغلاق</button>
+            <button onclick="closeModal()" style="background:none; border:none; color:var(--text-muted); font-size:0.7rem; font-weight:700; margin-top:8px; cursor:pointer;">إغلاق</button>
         </div>
     </div>
 
     <script>
-        let audioCtx = null;
-        function playBeep(frequency, duration) {
-            try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if(audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.value = frequency;
-                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
-            } catch(e) {}
-        }
-
         let currentGame = '';
         let remainingSpins = 10;
 
-        const winnerNames = [
-            "علي ك.", "محمد ع.", "حسين م.", "فاطمة ج.", "أحمد ر.", 
-            "كرار ه.", "زينب س.", "مصطفى ق.", "عمر خ.", "سيف ب.", 
-            "مهدي و.", "نور ط.", "يوسف ح.", "باقر ن.", "حيدر ك."
-        ];
-        const winnerGames = ["Aviator", "Mines 5x5", "Apple Fortune", "Penalty"];
-        let winnersList = [];
-
-        function generateRandomWinnerObj() {
-            const name = winnerNames[Math.floor(Math.random() * winnerNames.length)];
-            const game = winnerGames[Math.floor(Math.random() * winnerGames.length)];
-            const amount = ((Math.floor(Math.random() * 90) + 10) * 10000).toLocaleString('en-US') + " د.ع";
-            return { name, game, amount };
-        }
-
-        function initWinners() {
-            for(let i=0; i<8; i++) {
-                winnersList.push(generateRandomWinnerObj());
-            }
-            renderWinners(false);
-        }
-
-        function renderWinners(isUpdate = false) {
-            const listContainer = document.getElementById('tickerList');
-            if(!listContainer) return;
-
-            listContainer.innerHTML = '';
-            winnersList.forEach((w) => {
-                const div = document.createElement('div');
-                div.className = 'winner-item';
-                div.innerHTML = `<span>${w.name} (${w.game})</span> <b>${w.amount}</b>`;
-                listContainer.appendChild(div);
-            });
-        }
-
-        function updateWinnersTicker() {
-            winnersList.unshift(generateRandomWinnerObj());
-            if(winnersList.length > 8) winnersList.pop();
-            renderWinners(true);
-        }
-
-        setInterval(updateWinnersTicker, 2500);
-        window.onload = initWinners;
-
-        function spawnToastNotification() {
-            const container = document.getElementById('toast-container');
-            if(!container) return;
-            const w = generateRandomWinnerObj();
-            const toast = document.createElement('div');
-            toast.className = 'toast-card';
-            toast.innerHTML = `
-                <div class="toast-icon">🎉</div>
-                <div class="toast-text">
-                    <b>${w.name}</b> (${w.game})<br>سحب ربح بقيمة <b>${w.amount}</b>!
-                </div>
-            `;
-            container.appendChild(toast);
-            playBeep(880, 0.05);
-            setTimeout(() => { toast.remove(); }, 3500);
-        }
-        setInterval(spawnToastNotification, 8000);
-
-        setInterval(() => {
-            const el = document.getElementById('accuracyRate');
-            if(el) {
-                const randomAcc = (98 + Math.random() * 1.5).toFixed(1);
-                el.textContent = randomAcc;
-            }
-        }, 4000);
-
-        function updateBalanceUI() {
-            document.getElementById('balanceDisplay').textContent = `المحاولات: ${remainingSpins}/10`;
-        }
-
         function login() {
-            const pinInput = document.getElementById('pin');
-            const pinVal = pinInput.value.trim();
-            
+            const pinVal = document.getElementById('pin').value.trim();
             if(pinVal === '2282') {
                 document.getElementById('auth-screen').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('dashboard').style.display = 'flex';
             } else {
                 document.getElementById('modalTitle').textContent = '⚠️ رمز PIN غير صحيح';
-                document.getElementById('modalText').textContent = 'رمز الدخول خاطئ. للوصول الكامل واستخدام الإشارات غير المحدودة، تذكر إتمام التسجيل بروموكود IRSO88 والشحن عبر الرابط أدناه:';
+                document.getElementById('modalText').textContent = 'أدخل الرمز الصحيح (2282) أو سجل باستخدام بروموكود IRSO88.';
                 openModal();
             }
         }
@@ -732,156 +346,63 @@
         function openGame(gameName) {
             currentGame = gameName;
             document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('gameplay').style.display = 'block';
+            document.getElementById('gameplay').style.display = 'flex';
             document.getElementById('currentGameLabel').textContent = gameName;
-            updateProgressUI();
             renderGameInterface();
         }
 
         function goHome() {
             document.getElementById('gameplay').style.display = 'none';
-            document.getElementById('dashboard').style.display = 'block';
-        }
-
-        function updateProgressUI() {
-            const fill = document.getElementById('bonusProgressFill');
-            const txt = document.getElementById('progressText');
-            const p = (remainingSpins / 10) * 100;
-            if(fill) fill.style.width = `${p}%`;
-            if(txt) txt.textContent = `${remainingSpins} / 10 محاولات`;
+            document.getElementById('dashboard').style.display = 'flex';
         }
 
         function renderGameInterface() {
             const area = document.getElementById('game-content-area');
             if (currentGame === 'Aviator') {
-                area.innerHTML = `
-                    <div style="font-size:0.65rem; color:var(--text-muted); font-weight:700;">✈️ المضاعف المقترح المتوقع</div>
-                    <div class="aviator-val" id="aviatorVal">2.14x</div>
-                `;
+                area.innerHTML = `<div style="font-size:0.6rem; color:var(--text-muted);">المضاعف المقترح</div><div class="aviator-val" id="aviatorVal">2.14x</div>`;
             } else if (currentGame === 'Mines') {
-                let gridHtml = '<div style="font-size:0.65rem; color:var(--text-muted); margin-bottom:6px; font-weight:700;">💎 الخلايا الآمنة الموصى بها</div><div class="mines-grid">';
-                for(let i=0; i<25; i++) {
-                    gridHtml += `<div class="mine-cell" id="mine-${i}">⬜</div>`;
-                }
-                gridHtml += '</div>';
-                area.innerHTML = gridHtml;
+                let html = '<div style="font-size:0.6rem; color:var(--text-muted); margin-bottom:4px;">الخلايا الآمنة</div><div class="mines-grid">';
+                for(let i=0; i<25; i++) html += `<div class="mine-cell" id="mine-${i}">⬜</div>`;
+                area.innerHTML = html + '</div>';
                 generateMines();
-            } else if (currentGame === 'Apple Fortune') {
-                let appleHtml = '<div style="font-size:0.65rem; color:var(--text-muted); margin-bottom:6px; font-weight:700;">🍎 المسار الآمن للتفاح</div><div class="apple-rows">';
-                for(let r=0; r<5; r++) {
-                    appleHtml += '<div class="apple-row">';
-                    for(let c=0; c<5; c++) {
-                        appleHtml += `<div class="apple-cell" id="apple-${r}-${c}">🍎</div>`;
-                    }
-                    appleHtml += '</div>';
-                }
-                appleHtml += '</div>';
-                area.innerHTML = appleHtml;
-                generateApples();
-            } else if (currentGame === 'Penalty') {
-                area.innerHTML = `
-                    <div style="font-size:0.65rem; color:var(--text-muted); margin-bottom:6px; font-weight:700;">⚽ التسديدة المضمونة برأي الذكاء الاصطناعي</div>
-                    <div class="penalty-field">
-                        <div class="goal-target" id="target" style="top: 25%; left: 38%;">🥅</div>
-                    </div>
-                `;
-                generatePenalty();
+            } else {
+                area.innerHTML = `<div style="font-size:0.7rem; color:var(--accent-cyan);">إشارة جاهزة للتحليل</div>`;
             }
         }
 
         function triggerPrediction() {
             if (remainingSpins <= 0) {
-                document.getElementById('modalTitle').textContent = '⚠️ انتهت محاولاتك المجانية';
-                document.getElementById('modalText').textContent = 'لقد استخدمت محاولات التجربة الـ 10. للحصول على إشارات غير محدودة، تأكد من استخدام بروموكود IRSO88 على 1XBET عبر الرابط أدناه:';
+                document.getElementById('modalTitle').textContent = '⚠️ انتهت المحاولات';
+                document.getElementById('modalText').textContent = 'استخدم بروموكود IRSO88 للمتابعة بلا حدود.';
                 openModal();
                 return;
             }
-
             remainingSpins--;
-            updateBalanceUI();
-            updateProgressUI();
+            document.getElementById('balanceDisplay').textContent = `المحاولات: ${remainingSpins}/10`;
+            document.getElementById('progressText').textContent = `${remainingSpins}/10`;
 
-            const overlay = document.getElementById('scanningOverlay');
-            if(overlay) overlay.style.display = 'flex';
-
-            setTimeout(() => {
-                if(overlay) overlay.style.display = 'none';
-                playBeep(1200, 0.08);
-
-                if (currentGame === 'Aviator') {
-                    const multipliers = ['1.75x', '2.80x', '3.45x', '1.35x', '5.20x', '2.10x', '4.15x', '6.50x'];
-                    const val = multipliers[Math.floor(Math.random() * multipliers.length)];
-                    const elem = document.getElementById('aviatorVal');
-                    if(elem) {
-                        elem.style.opacity = '0';
-                        setTimeout(() => { elem.textContent = val; elem.style.opacity = '1'; }, 100);
-                    }
-                } else if (currentGame === 'Mines') {
-                    generateMines();
-                } else if (currentGame === 'Apple Fortune') {
-                    generateApples();
-                } else if (currentGame === 'Penalty') {
-                    generatePenalty();
-                }
-
-                if (remainingSpins <= 0) {
-                    setTimeout(() => {
-                        document.getElementById('modalTitle').textContent = '⚠️ انتهت محاولاتك المجانية';
-                        document.getElementById('modalText').textContent = 'لقد استهلكت كافة المحاولات. لتفعيل الإشارات بلا حدود، تفضل بزيارة 1XBET وتسجيل حساب جديد باستخدام البروموكود IRSO88:';
-                        openModal();
-                    }, 600);
-                }
-            }, 600);
+            if (currentGame === 'Aviator') {
+                const mults = ['1.85x', '3.10x', '2.45x', '4.20x', '1.50x'];
+                document.getElementById('aviatorVal').textContent = mults[Math.floor(Math.random() * mults.length)];
+            } else if (currentGame === 'Mines') {
+                generateMines();
+            }
         }
 
         function generateMines() {
             for(let i=0; i<25; i++) {
                 const cell = document.getElementById(`mine-${i}`);
-                if(cell) {
-                    cell.className = 'mine-cell';
-                    cell.textContent = '⬜';
-                }
+                if(cell) { cell.className = 'mine-cell'; cell.textContent = '⬜'; }
             }
-            let safeIndexes = [];
-            while(safeIndexes.length < 5) {
+            let safe = [];
+            while(safe.length < 5) {
                 let r = Math.floor(Math.random() * 25);
-                if(!safeIndexes.includes(r)) safeIndexes.push(r);
+                if(!safe.includes(r)) safe.push(r);
             }
-            safeIndexes.forEach(idx => {
+            safe.forEach(idx => {
                 const cell = document.getElementById(`mine-${idx}`);
-                if(cell) {
-                    cell.classList.add('safe');
-                    cell.textContent = '⭐';
-                }
+                if(cell) { cell.classList.add('safe'); cell.textContent = '⭐'; }
             });
-        }
-
-        function generateApples() {
-            for(let r=0; r<5; r++) {
-                for(let c=0; c<5; c++) {
-                    const cell = document.getElementById(`apple-${r}-${c}`);
-                    if(cell) cell.classList.remove('highlight');
-                }
-                let randomCol = Math.floor(Math.random() * 5);
-                const goodCell = document.getElementById(`apple-${r}-${randomCol}`);
-                if(goodCell) goodCell.classList.add('highlight');
-            }
-        }
-
-        function generatePenalty() {
-            const positions = [
-                {top: '18%', left: '20%'},
-                {top: '18%', left: '70%'},
-                {top: '55%', left: '25%'},
-                {top: '55%', left: '65%'},
-                {top: '30%', left: '42%'}
-            ];
-            const pos = positions[Math.floor(Math.random() * positions.length)];
-            const target = document.getElementById('target');
-            if(target) {
-                target.style.top = pos.top;
-                target.style.left = pos.left;
-            }
         }
 
         function openModal() { document.getElementById('modal-overlay').style.display = 'flex'; }
