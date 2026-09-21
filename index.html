@@ -3,206 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قناة الخاصة رقم 1 في العراق</title>
+    <title>1xBet VIP Iraq - توقعات الذكاء الاصطناعي</title>
     <style>
+        :root {
+            --primary-blue: #1877f2;
+            --dark-blue: #0b1a30;
+            --card-bg: rgba(22, 36, 61, 0.95);
+            --accent-green: #1eff00;
+            --text-color: #ffffff;
+            --text-muted: #b0c4de;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
+
         body {
-            /* Фирменный градиент 1xBet */
             background: linear-gradient(135deg, #0b1a30 0%, #12294c 50%, #0c1b33 100%);
-            color: #ffffff;
+            color: var(--text-color);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Фоновый паттерн 1xBet */
+        /* Анимированный фон 1xBet */
         body::before {
-            content: "1XBET 1XBET 1XBET";
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            font-size: 120px;
+            content: "1XBET 1XBET 1XBET 1XBET 1XBET";
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            font-size: 100px;
             font-weight: 900;
-            color: rgba(13, 91, 189, 0.1); /* Полупрозрачный синий */
+            color: rgba(24, 119, 242, 0.04);
             transform: rotate(-15deg);
             z-index: -1;
             line-height: 1.5;
-            letter-spacing: 20px;
+            letter-spacing: 15px;
             white-space: nowrap;
             pointer-events: none;
         }
 
-        .container {
-            background: rgba(22, 36, 61, 0.95); /* Чуть более плотный фон */
-            border: 1px solid rgba(41, 98, 255, 0.5);
-            padding: 40px; /* Больше отступы */
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        .app-container {
             width: 100%;
-            max-width: 420px;
+            max-width: 480px;
+            background: var(--card-bg);
+            border: 1px solid rgba(41, 98, 255, 0.4);
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(24, 119, 242, 0.2);
+            padding: 30px 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-area {
             text-align: center;
-            backdrop-filter: blur(5px); /* Эффект размытия фона */
+            margin-bottom: 25px;
         }
-        .logo {
-            font-size: 32px; /* Крупнее логотип */
+
+        .logo-text {
+            font-size: 32px;
             font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-        }
-        .logo span {
-            color: #1eff00; /* Фирменный зеленый */
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 15px;
             color: #ffffff;
-            font-weight: 700;
         }
+
+        .logo-text span {
+            color: var(--accent-green);
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            text-align: center;
+        }
+
         p {
-            font-size: 15px;
-            color: #dbeafe; /* Светло-голубой текст */
-            margin-bottom: 25px;
-            line-height: 1.7;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.6;
         }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
         input {
             width: 100%;
             padding: 16px;
             font-size: 18px;
             border: 2px solid #294c7d;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #0b1626;
             color: #fff;
-            margin-bottom: 18px;
             text-align: center;
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
+
         input:focus {
-            border-color: #1eff00;
-            box-shadow: 0 0 15px rgba(30, 255, 0, 0.3);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 15px rgba(30, 255, 0, 0.25);
         }
-        button {
+
+        .btn {
             width: 100%;
             padding: 16px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             background: linear-gradient(90deg, #1877f2 0%, #0d5bbd 100%);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.5);
+            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
-        button:hover {
+
+        .btn:hover {
             opacity: 0.95;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.7);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.6);
         }
-        button:active {
-            transform: translateY(1px);
-        }
-        .error {
+
+        .error-msg {
             color: #ff4d4d;
-            font-size: 14px;
-            margin-top: 12px;
-            display: none;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
             font-weight: 600;
-        }
-        .hidden {
             display: none;
+        }
+
+        /* Главный экран после авторизации */
+        .dashboard-header {
+            background: rgba(11, 26, 48, 0.8);
+            border: 1px solid rgba(24, 119, 242, 0.3);
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .dashboard-header p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--accent-green);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .game-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .game-info h3 {
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .game-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+            text-align: right;
+        }
+
+        .signal-badge {
+            background: rgba(30, 255, 0, 0.15);
+            color: var(--accent-green);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid rgba(30, 255, 0, 0.3);
+        }
+
+        .info-box {
+            background: rgba(24, 119, 242, 0.1);
+            border: 1px solid rgba(24, 119, 242, 0.3);
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-box h4 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .info-box span {
+            color: #1eff00;
+            font-weight: bold;
+        }
+
+        .winners-section {
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .winners-section h4 {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .winner-item {
+            font-size: 12px;
+            color: #cbd5e1;
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
         }
     </style>
 </head>
 <body>
 
-    <!-- Экран ввода PIN-кода -->
-    <div class="container" id="pin-screen">
-        <div class="logo">1x<span>BET</span> VIP</div>
-        <h1>الوصول مقيد</h1>
-        <p>أدخل رمز الوصول (PIN) للمتابعة</p>
-        <input type="password" id="pin-input" placeholder="أدخل الرمز" maxlength="4" inputmode="numeric">
-        <button onclick="checkPin()">دخول</button>
-        <div class="error" id="pin-error">رمز الوصول غير صحيح</div>
-    </div>
+    <div class="app-container">
+        
+        <!-- ЭКРАН 1: Ввод PIN-кода -->
+        <div id="screen-pin" class="screen active">
+            <div class="logo-area">
+                <div class="logo-text">1x<span>BET</span> VIP</div>
+                <div class="subtitle">Iraq Market Access</div>
+            </div>
+            <h2>الوصول مقيد</h2>
+            <p>أدخل رمز الوصول (PIN) الحصري للمتابعة إلى النظام</p>
+            <div class="form-group">
+                <input type="password" id="pin-input" placeholder="••••" maxlength="4" inputmode="numeric">
+            </div>
+            <button class="btn" onclick="verifyPin()">دخول النظام</button>
+            <div id="pin-error" class="error-msg">رمز الوصول غير صحيح!</div>
+        </div>
 
-    <!-- Экран проверки 1xBet ID -->
-    <div class="container hidden" id="id-screen">
-        <div class="logo">1x<span>BET</span> VIP</div>
-        <h1>التحقق من حساب 1xBet</h1>
-        <p>أدخل معرف حساب 1xBet الخاص بك (يبدأ بـ 181) للتحقق من أهليتك:</p>
-        <input type="text" id="xbet-id-input" placeholder="أدخل رقم ID الخاص بك" inputmode="numeric">
-        <button onclick="checkXbetId()">تحقق والانضمام</button>
-        <div class="error" id="id-error">المعرف غير صالح. يجب أن يبدأ بـ 181</div>
-    </div>
+        <!-- ЭКРАН 2: Проверка 1xBet ID -->
+        <div id="screen-id" class="screen">
+            <div class="logo-area">
+                <div class="logo-text">1x<span>BET</span> VIP</div>
+                <div class="subtitle">AI Signal Verification</div>
+            </div>
+            <h2>التحقق من حساب 1xBet</h2>
+            <p>أدخل معرف حسابك في 1xBet (يجب أن يبدأ بـ <strong>181</strong>) لتفعيل خوارزميات الإشارات:</p>
+            <div class="form-group">
+                <input type="text" id="id-input" placeholder="مثال: 181234567" inputmode="numeric">
+            </div>
+            <button class="btn" onclick="verifyId()">التحقق والتفعيل</button>
+            <div id="id-error" class="error-msg">المعرف غير صالح! يجب أن يبدأ بـ 181 ويتكون من أرقام صحيحة.</div>
+        </div>
 
-    <!-- Финальный экран -->
-    <div class="container hidden" id="main-screen">
-        <div class="logo">1x<span>BET</span> VIP</div>
-        <h1>قناة الخاصة رقم 1 في العراق 🇮🇶</h1>
-        <p>
-            💸 اربح ما يصل إلى 150,000 دينار عراقي<br>
-            📊 إشارات في الوقت الفعلي<br>
-            🔓 تم التحقق بنجاح
-        </p>
-        <button onclick="openTelegram()">فتح في تيليجرام</button>
+        <!-- ЭКРАН 3: Главный рабочий дашборд с прогнозами и играми -->
+        <div id="screen-dashboard" class="screen">
+            <div class="logo-area" style="margin-bottom: 15px;">
+                <div class="logo-text" style="font-size: 26px;">1x<span>BET</span> IRAQ 🇮🇶</div>
+                <div class="subtitle">لوحة تحكم الإشارات النشطة</div>
+            </div>
+
+            <div class="dashboard-header">
+                <p>🟢 تم التحقق من الحساب بنجاح | الذكاء الاصطناعي متصل</p>
+            </div>
+
+            <div class="info-box">
+                <h4>🎯 جائزة وتوقعات اليوم</h4>
+                <p style="margin: 0; font-size: 13px;">اربح ما يصل إلى <span>150,000 دينار عراقي</span> باستخدام إشارات الألعاب المباشرة أدناه:</p>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-info">
+                        <h3>🎮 لعبة الطيار (Aviator)</h3>
+                        <p>دقة التوقع الحالية</p>
+                    </div>
+                    <div class="signal-badge">98.4% 📈</div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <h3>💣 الألغام (Mines)</h3>
+                        <p>مسار آمن مضمون</p>
+                    </div>
+                    <div class="signal-badge">نشط 🟢</div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <h3>🥅 ضربة جزاء (Penalty)</h3>
+                        <p>اتجاه الكرة التالي</p>
+                    </div>
+                    <div class="signal-badge">زاوية يمنى ⚽</div>
+                </div>
+            </div>
+
+            <button class="btn" onclick="openTelegram()" style="margin-bottom: 20px;">فتح القناة وتلقي الإشارات</button>
+
+            <div class="winners-section">
+                <h4>🏆 أحدث ارباح اللاعبين في العراق اليوم</h4>
+                <div class="winner-item">
+                    <span>ID: 1819342...</span>
+                    <strong style="color: #1eff00;">142,500 IQD</strong>
+                </div>
+                <div class="winner-item">
+                    <span>ID: 1814112...</span>
+                    <strong style="color: #1eff00;">98,000 IQD</strong>
+                </div>
+                <div class="winner-item">
+                    <span>ID: 1817753...</span>
+                    <strong style="color: #1eff00;">150,000 IQD</strong>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         const CORRECT_PIN = "2282";
         const REF_URL = "https://reffpa.com/L?tag=d_5703442m_18217c_&site=5703442&ad=18217&r=registration";
 
-        function checkPin() {
-            const pin = document.getElementById("pin-input").value;
-            const error = document.getElementById("pin-error");
-            
+        function verifyPin() {
+            const pin = document.getElementById("pin-input").value.trim();
+            const errorDiv = document.getElementById("pin-error");
+
             if (pin === CORRECT_PIN) {
-                document.getElementById("pin-screen").classList.add("hidden");
-                document.getElementById("id-screen").classList.remove("hidden");
+                document.getElementById("screen-pin").classList.remove("active");
+                document.getElementById("screen-id").classList.add("active");
             } else {
-                error.style.display = "block";
-                document.getElementById("pin-input").value = ""; // Очистка поля
+                errorDiv.style.display = "block";
+                document.getElementById("pin-input").value = "";
             }
         }
 
-        function checkXbetId() {
-            const xbetId = document.getElementById("xbet-id-input").value.trim();
-            const error = document.getElementById("id-error");
-            
-            // Проверка: ID должен начинаться с '181' и содержать только цифры
+        function verifyId() {
+            const xbetId = document.getElementById("id-input").value.trim();
+            const errorDiv = document.getElementById("id-error");
+
+            // Проверка: начинается с 181 и состоит только из цифр, длина хотя бы 6-7 символов
             if (xbetId.startsWith("181") && xbetId.length >= 6 && /^\d+$/.test(xbetId)) {
-                document.getElementById("id-screen").classList.add("hidden");
-                document.getElementById("main-screen").classList.remove("hidden");
+                document.getElementById("screen-id").classList.remove("active");
+                document.getElementById("screen-dashboard").classList.add("active");
             } else {
-                error.style.display = "block";
+                errorDiv.style.display = "block";
             }
         }
 
         function openTelegram() {
             window.location.href = REF_URL;
         }
-        
-        // Дополнительная обработка Enter для полей ввода
-        document.getElementById("pin-input").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") checkPin();
+
+        // Поддержка нажатия Enter
+        document.getElementById("pin-input").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") verifyPin();
         });
-        document.getElementById("xbet-id-input").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") checkXbetId();
+        document.getElementById("id-input").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") verifyId();
         });
     </script>
 
