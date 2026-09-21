@@ -173,7 +173,8 @@
         .game-name { font-weight: 800; font-size: 0.8rem; margin-bottom: 2px; }
         .game-status { font-size: 0.6rem; color: var(--accent-cyan); background: rgba(0, 153, 255, 0.1); padding: 2px 6px; border-radius: 8px; display: inline-block; }
 
-        #gameplay, #dashboard { display: none; width: 100%; flex-direction: column; gap: 10px; }
+        #gameplay { display: none; width: 100%; flex-direction: column; gap: 10px; }
+        #dashboard { display: flex; width: 100%; flex-direction: column; gap: 10px; }
 
         .nav-top {
             display: flex;
@@ -188,6 +189,7 @@
             border-radius: 6px;
             font-size: 0.7rem;
             font-weight: 700;
+            cursor: pointer;
         }
 
         .game-screen {
@@ -225,7 +227,7 @@
         }
         .mine-cell.safe { background: rgba(0, 153, 255, 0.3); border-color: var(--accent-cyan); }
 
-        /* Стили для Apple Fortune */
+        /* Apple Fortune */
         .apple-rows {
             display: flex;
             flex-direction: column;
@@ -237,7 +239,7 @@
         .apple-cell { background: rgba(3, 11, 30, 0.9); border: 1px solid var(--border-neon); border-radius: 4px; padding: 4px 0; text-align: center; opacity: 0.4; font-size: 0.7rem; }
         .apple-cell.highlight { background: rgba(0, 153, 255, 0.35); border-color: var(--accent-cyan); opacity: 1; box-shadow: 0 0 8px rgba(0,229,255,0.4); }
 
-        /* Стили для Penalty */
+        /* Penalty */
         .penalty-field {
             background: linear-gradient(135deg, #030b1e, #0c2045);
             border: 1px solid var(--border-neon);
@@ -300,7 +302,7 @@
         </div>
 
         <!-- DASHBOARD -->
-        <div id="dashboard">
+        <div id="dashboard" style="display:none;">
             <div style="font-size: 0.7rem; color: var(--accent-cyan); font-weight: 800; text-transform: uppercase;">اختر اللعبة للتحليل</div>
             <div class="games-grid">
                 <div class="game-card" onclick="openGame('Aviator')">
@@ -408,7 +410,7 @@
                 area.innerHTML = `
                     <div style="font-size:0.6rem; color:var(--text-muted); margin-bottom:4px;">التسديدة المضمونة للهدف</div>
                     <div class="penalty-field">
-                        <div class="goal-target" id="target" style="top: 25%; left: 38%;">🥅</div>
+                        <div class="goal-target" id="target">⚽</div>
                     </div>
                 `;
                 generatePenalty();
@@ -424,7 +426,7 @@
             }
             remainingSpins--;
             document.getElementById('balanceDisplay').textContent = `المحاولات: ${remainingSpins}/10`;
-            document.getElementById('progressText').textContent =`${remainingSpins}/10`;
+            document.getElementById('progressText').textContent = `${remainingSpins}/10`;
 
             if (currentGame === 'Aviator') {
                 const mults = ['1.85x', '3.10x', '2.45x', '4.20x', '1.50x'];
@@ -467,5 +469,23 @@
         }
 
         function generatePenalty() {
-            const positions = [
-                {top: '15%
+            const coords = [
+                {top: '20%', left: '20%'},
+                {top: '20%', left: '70%'},
+                {top: '60%', left: '45%'},
+                {top: '60%', left: '20%'},
+                {top: '60%', left: '70%'}
+            ];
+            const chosen = coords[Math.floor(Math.random() * coords.length)];
+            const target = document.getElementById('target');
+            if(target) {
+                target.style.top = chosen.top;
+                target.style.left = chosen.left;
+            }
+        }
+
+        function openModal() { document.getElementById('modal-overlay').style.display = 'flex'; }
+        function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
+    </script>
+</body>
+</html>
