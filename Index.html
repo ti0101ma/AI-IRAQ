@@ -12,70 +12,117 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         body {
-            background-color: #0f172a;
+            /* Фирменный градиент 1xBet */
+            background: linear-gradient(135deg, #0b1a30 0%, #12294c 50%, #0c1b33 100%);
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Фоновый паттерн 1xBet */
+        body::before {
+            content: "1XBET 1XBET 1XBET";
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            font-size: 120px;
+            font-weight: 900;
+            color: rgba(13, 91, 189, 0.1); /* Полупрозрачный синий */
+            transform: rotate(-15deg);
+            z-index: -1;
+            line-height: 1.5;
+            letter-spacing: 20px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
         .container {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: rgba(22, 36, 61, 0.95); /* Чуть более плотный фон */
+            border: 1px solid rgba(41, 98, 255, 0.5);
+            padding: 40px; /* Больше отступы */
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
+            backdrop-filter: blur(5px); /* Эффект размытия фона */
+        }
+        .logo {
+            font-size: 32px; /* Крупнее логотип */
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .logo span {
+            color: #1eff00; /* Фирменный зеленый */
         }
         h1 {
             font-size: 22px;
             margin-bottom: 15px;
-            color: #f8fafc;
+            color: #ffffff;
+            font-weight: 700;
         }
         p {
             font-size: 15px;
-            color: #94a3b8;
+            color: #dbeafe; /* Светло-голубой текст */
             margin-bottom: 25px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         input {
             width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            border: 2px solid #334155;
-            border-radius: 8px;
-            background: #0f172a;
+            padding: 16px;
+            font-size: 18px;
+            border: 2px solid #294c7d;
+            border-radius: 10px;
+            background: #0b1626;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             text-align: center;
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.3s;
         }
         input:focus {
-            border-color: #3b82f6;
+            border-color: #1eff00;
+            box-shadow: 0 0 15px rgba(30, 255, 0, 0.3);
         }
         button {
             width: 100%;
-            padding: 14px;
-            font-size: 16px;
+            padding: 16px;
+            font-size: 18px;
             font-weight: bold;
-            background-color: #2563eb;
+            background: linear-gradient(90deg, #1877f2 0%, #0d5bbd 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         button:hover {
-            background-color: #1d4ed8;
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.7);
+        }
+        button:active {
+            transform: translateY(1px);
         }
         .error {
-            color: #ef4444;
+            color: #ff4d4d;
             font-size: 14px;
-            margin-top: 10px;
+            margin-top: 12px;
             display: none;
+            font-weight: 600;
         }
         .hidden {
             display: none;
@@ -84,20 +131,34 @@
 </head>
 <body>
 
+    <!-- Экран ввода PIN-кода -->
     <div class="container" id="pin-screen">
+        <div class="logo">1x<span>BET</span> VIP</div>
         <h1>الوصول مقيد</h1>
-        <p>أدخل رمز الوصول (PIN) للمتابعة إلى القناة</p>
-        <input type="password" id="pin-input" placeholder="أدخل الرمز" maxlength="4">
+        <p>أدخل رمز الوصول (PIN) للمتابعة</p>
+        <input type="password" id="pin-input" placeholder="أدخل الرمز" maxlength="4" inputmode="numeric">
         <button onclick="checkPin()">دخول</button>
         <div class="error" id="pin-error">رمز الوصول غير صحيح</div>
     </div>
 
+    <!-- Экран проверки 1xBet ID -->
+    <div class="container hidden" id="id-screen">
+        <div class="logo">1x<span>BET</span> VIP</div>
+        <h1>التحقق من حساب 1xBet</h1>
+        <p>أدخل معرف حساب 1xBet الخاص بك (يبدأ بـ 181) للتحقق من أهليتك:</p>
+        <input type="text" id="xbet-id-input" placeholder="أدخل رقم ID الخاص بك" inputmode="numeric">
+        <button onclick="checkXbetId()">تحقق والانضمام</button>
+        <div class="error" id="id-error">المعرف غير صالح. يجب أن يبدأ بـ 181</div>
+    </div>
+
+    <!-- Финальный экран -->
     <div class="container hidden" id="main-screen">
+        <div class="logo">1x<span>BET</span> VIP</div>
         <h1>قناة الخاصة رقم 1 في العراق 🇮🇶</h1>
         <p>
             💸 اربح ما يصل إلى 150,000 دينار عراقي<br>
             📊 إشارات في الوقت الفعلي<br>
-            🔓 الوصول مجاني اليوم
+            🔓 تم التحقق بنجاح
         </p>
         <button onclick="openTelegram()">فتح في تيليجرام</button>
     </div>
@@ -112,6 +173,20 @@
             
             if (pin === CORRECT_PIN) {
                 document.getElementById("pin-screen").classList.add("hidden");
+                document.getElementById("id-screen").classList.remove("hidden");
+            } else {
+                error.style.display = "block";
+                document.getElementById("pin-input").value = ""; // Очистка поля
+            }
+        }
+
+        function checkXbetId() {
+            const xbetId = document.getElementById("xbet-id-input").value.trim();
+            const error = document.getElementById("id-error");
+            
+            // Проверка: ID должен начинаться с '181' и содержать только цифры
+            if (xbetId.startsWith("181") && xbetId.length >= 6 && /^\d+$/.test(xbetId)) {
+                document.getElementById("id-screen").classList.add("hidden");
                 document.getElementById("main-screen").classList.remove("hidden");
             } else {
                 error.style.display = "block";
@@ -121,6 +196,14 @@
         function openTelegram() {
             window.location.href = REF_URL;
         }
+        
+        // Дополнительная обработка Enter для полей ввода
+        document.getElementById("pin-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") checkPin();
+        });
+        document.getElementById("xbet-id-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") checkXbetId();
+        });
     </script>
 
 </body>
